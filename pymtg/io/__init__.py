@@ -1,6 +1,7 @@
 import os
 import errno
 import json
+import fnmatch
 
 
 def json_dump(path, data, indent=4, verbose=False):
@@ -47,3 +48,58 @@ def mkdir_p(path):
             pass
         else:
             raise
+
+
+def get_filenames_in_dir(dir_name, keyword='*', skip_foldername='', match_case=True, verbose=False):
+    """
+    Inputs
+    ``dir_name``          : the foldername
+    ``keyword``           : the keyword to search (defaults to '*')
+    ``skip_foldername``   : an optional foldername to skip searching
+    ``match_case``        : flag for case matching
+    ``verbose``           : verbose flag
+
+    Outputs:
+    ``fullnames``         : list of the fullpaths of the files found
+    ``folder``            : list of the folders of the files
+    ``names``             : list of the filenames without the foldername
+
+    TODO: better document this function?
+    TODO: does a python 3 version of this function exist
+    """
+    names = []
+    folders = []
+    fullnames = []
+
+    if verbose:
+        print dir_name
+
+    # check if the folder exists
+    if not os.path.isdir(dir_name):
+        if verbose:
+            print("Directory doesn't exist!")
+        return [], [], []
+
+    # if the dir_name finishes with the file separator,
+    # remove it so os.walk works properly
+    dir_name = dir_name[:-1] if dir_name[-1] == os.sep else dir_name
+
+    # walk all the subdirectories
+    for (path, dirs, files) in os.walk(dir_name):
+        for f in files:
+            hasKey = (fnmatch.fnmatch(f, keyword) if match_case else
+                      fnmatch.fnmatch(f.lower(), keyword.lower()))
+            if hasKey and skip_foldername not in path.split(os.sep)[1:]:
+                try:
+                    folders.append(unicode(path, 'utf-8'))
+                except TypeError:  # already unicode
+                    folders.append(path)
+                try:
+                    names.append(unicode(f, 'utf-8'))
+                except TypeError:  # already unicode
+                    names.append(path)
+                fullnames.append(os.path.join(path, f))
+
+    if verbose:
+        print("> Found " + str(len(names)) + " files.")
+    return fullnames, folders, names
