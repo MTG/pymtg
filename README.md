@@ -18,7 +18,7 @@ cd docs_src
 make html
 ```
 
-To update the documentation hosted in [https://mtg.github.io/pymtg/](https://mtg.github.io/pymtg/), docs need to be rebuild locally and newly generated files (under `docs/`) pushed to the `master` branch.
+To update the documentation hosted in [https://mtg.github.io/pymtg/](https://mtg.github.io/pymtg/), docs need to be rebuilt locally and newly generated files (under `docs/`) pushed to the `master` branch.
 
 
 
