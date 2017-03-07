@@ -10,13 +10,17 @@ pip install git+https://github.com/MTG/pymtg
 
 Docs are hosted using Github Pages and can be found here [https://mtg.github.io/pymtg/](https://mtg.github.io/pymtg/).
 
-
-## Building the docs
-
-Documentation is built using [Sphinx](http://www.sphinx-doc.org/en/stable/).
-You can build it using the following commands:
+Docs are built using [Sphinx](http://www.sphinx-doc.org/en/stable/).
+Use the following commands:
 ```
 pip install sphinx sphinx_bootstrap_theme
-cd docs
+cd docs_src
 make html
 ```
+
+To update the documentation hosted in [https://mtg.github.io/pymtg/](https://mtg.github.io/pymtg/), docs need to be rebuild locally and newly generated files (under `docs/`) pushed to the `master` branch.
+
+
+
+
+
