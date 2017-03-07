@@ -6,24 +6,11 @@ You can install this package using `pip` using the following line:
 pip install git+https://github.com/MTG/pymtg
 ```
 
-## Contents of `pymtg`
+## Building the docs
 
-### `pymtg.io`
-
-* `pymtg.io.json_dump`
-* `pymtg.io.json_load`
-* `pymtg.io.save_to_file`
-* `pymtg.io.mkdir_p`
-* `pymtg.io.get_filenames_in_dir`
-
-### `pymtg.iterables`
-
-* `pymtg.iterables.chunks`
-
-### `pymtg.plotting`
-
-* `pymtg.plotting.color_at_index`
-
-### `pymtg.time`
-
-* `pymtg.time.time_stats`
+Documentation is built using [Sphinx](http://www.sphinx-doc.org/en/stable/).
+Use the following commands:
+```
+pip install sphinx sphinx_bootstrap_theme
+make html
+```
