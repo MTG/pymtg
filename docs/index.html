@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pymtg documentation &#8212; pymtg 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="pymtg 0.1 documentation" href="#" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          pymtg</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">pymtg documentation</a><ul>
+<li><a class="reference internal" href="#module-pymtg.io">pymtg.io</a></li>
+<li><a class="reference internal" href="#module-pymtg.iterables">pymtg.iterables</a></li>
+<li><a class="reference internal" href="#module-pymtg.plotting">pymtg.plotting</a></li>
+<li><a class="reference internal" href="#module-pymtg.time">pymtg.time</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/index.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="pymtg-documentation">
+<h1>pymtg documentation<a class="headerlink" href="#pymtg-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pymtg.io">
+<span id="pymtg-io"></span><h2>pymtg.io<a class="headerlink" href="#module-pymtg.io" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pymtg.io.get_filenames_in_dir">
+<code class="descclassname">pymtg.io.</code><code class="descname">get_filenames_in_dir</code><span class="sig-paren">(</span><em>dir_name</em>, <em>keyword='*'</em>, <em>skip_foldername=''</em>, <em>match_case=True</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#get_filenames_in_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.get_filenames_in_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inputs
+<code class="docutils literal"><span class="pre">dir_name</span></code>          : the foldername
+<code class="docutils literal"><span class="pre">keyword</span></code>           : the keyword to search (defaults to &#8216;*&#8217;)
+<code class="docutils literal"><span class="pre">skip_foldername</span></code>   : an optional foldername to skip searching
+<code class="docutils literal"><span class="pre">match_case</span></code>        : flag for case matching
+<code class="docutils literal"><span class="pre">verbose</span></code>           : verbose flag</p>
+<p>Outputs:
+<code class="docutils literal"><span class="pre">fullnames</span></code>         : list of the fullpaths of the files found
+<code class="docutils literal"><span class="pre">folder</span></code>            : list of the folders of the files
+<code class="docutils literal"><span class="pre">names</span></code>             : list of the filenames without the foldername</p>
+<p>TODO: better document this function?
+TODO: does a python 3 version of this function exist</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pymtg.io.json_dump">
+<code class="descclassname">pymtg.io.</code><code class="descname">json_dump</code><span class="sig-paren">(</span><em>path</em>, <em>data</em>, <em>indent=4</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#json_dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.json_dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save python dictionary <code class="docutils literal"><span class="pre">data</span></code> to JSON file at <code class="docutils literal"><span class="pre">path</span></code>.
+Set <code class="docutils literal"><span class="pre">verbose=True</span></code> to print additional information on screen.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pymtg.io.json_load">
+<code class="descclassname">pymtg.io.</code><code class="descname">json_load</code><span class="sig-paren">(</span><em>path</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#json_load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.json_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load python dictionary stored in JSON file at <code class="docutils literal"><span class="pre">path</span></code>.
+Set <code class="docutils literal"><span class="pre">verbose=True</span></code> to print additional information on screen.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pymtg.io.mkdir_p">
+<code class="descclassname">pymtg.io.</code><code class="descname">mkdir_p</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#mkdir_p"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.mkdir_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO: document this function</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pymtg.io.save_to_file">
+<code class="descclassname">pymtg.io.</code><code class="descname">save_to_file</code><span class="sig-paren">(</span><em>path</em>, <em>data</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#save_to_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.save_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save arbitrary data to file at <code class="docutils literal"><span class="pre">path</span></code>.
+Set <code class="docutils literal"><span class="pre">verbose=True</span></code> to print additional information on screen.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymtg.iterables">
+<span id="pymtg-iterables"></span><h2>pymtg.iterables<a class="headerlink" href="#module-pymtg.iterables" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pymtg.iterables.chunks">
+<code class="descclassname">pymtg.iterables.</code><code class="descname">chunks</code><span class="sig-paren">(</span><em>l</em>, <em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/iterables.html#chunks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.iterables.chunks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yield successive <code class="docutils literal"><span class="pre">n</span></code>-sized chunks from <code class="docutils literal"><span class="pre">l</span></code>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymtg.plotting">
+<span id="pymtg-plotting"></span><h2>pymtg.plotting<a class="headerlink" href="#module-pymtg.plotting" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pymtg.plotting.color_at_index">
+<code class="descclassname">pymtg.plotting.</code><code class="descname">color_at_index</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/plotting.html#color_at_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.plotting.color_at_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return hexadecimal color at given <code class="docutils literal"><span class="pre">index</span></code> from COLORS.
+<code class="docutils literal"><span class="pre">index</span></code> wraps if larger than the length of COLORS.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymtg.time">
+<span id="pymtg-time"></span><h2>pymtg.time<a class="headerlink" href="#module-pymtg.time" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pymtg.time.time_stats">
+<code class="descclassname">pymtg.time.</code><code class="descname">time_stats</code><span class="sig-paren">(</span><em>done</em>, <em>total</em>, <em>starttime</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/time.html#time_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.time.time_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO: document that function</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Music Technology Group, UPF.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
