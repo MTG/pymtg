@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(name='pymtg',
       version='0.1',
@@ -7,4 +7,4 @@ setup(name='pymtg',
       author='Music Technology Group',
       author_email='mtg-info@upf.edu',
       license='MIT',
-      packages=['pymtg'])
+      packages=find_packages())
