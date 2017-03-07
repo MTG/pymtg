@@ -95,3 +95,6 @@ ENV/
 
 # Editors
 .idea
+
+# Others
+.DS_Store
