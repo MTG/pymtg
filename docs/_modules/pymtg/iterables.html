@@ -114,8 +114,11 @@
       
   <h1>Source code for pymtg.iterables</h1><div class="highlight"><pre>
 <div class="viewcode-block" id="chunks"><a class="viewcode-back" href="../../index.html#pymtg.iterables.chunks">[docs]</a><span></span><span class="k">def</span> <span class="nf">chunks</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Yield successive ``n``-sized chunks from ``l``.</span>
+    <span class="sd">&quot;&quot;&quot;Yield successive ``n``-sized chunks from ``l``.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; chunks([1, 2, 3, 4, 5], 2)</span>
+<span class="sd">        [[1, 2], [3, 4], [5]]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">n</span><span class="p">):</span>
         <span class="k">yield</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">]</span></div>
