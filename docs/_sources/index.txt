@@ -1,6 +1,16 @@
 pymtg documentation
 ===================
 
+Installation
+------------
+
+You can install ``pymtg`` using ``pip``:
+
+.. code-block:: none
+
+   pip install git+https://github.com/MTG/pymtg
+
+
 pymtg.io
 --------
 

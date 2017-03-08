@@ -79,6 +79,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">pymtg documentation</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#module-pymtg.io">pymtg.io</a></li>
 <li><a class="reference internal" href="#module-pymtg.iterables">pymtg.iterables</a></li>
 <li><a class="reference internal" href="#module-pymtg.plotting">pymtg.plotting</a></li>
@@ -126,6 +127,13 @@
       
   <div class="section" id="pymtg-documentation">
 <h1>pymtg documentation<a class="headerlink" href="#pymtg-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>You can install <code class="docutils literal"><span class="pre">pymtg</span></code> using <code class="docutils literal"><span class="pre">pip</span></code>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>pip install git+https://github.com/MTG/pymtg
+</pre></div>
+</div>
+</div>
 <div class="section" id="module-pymtg.io">
 <span id="pymtg-io"></span><h2>pymtg.io<a class="headerlink" href="#module-pymtg.io" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
@@ -164,7 +172,7 @@ TODO: does a python 3 version of this function exist?</p>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_filenames_in_dir</span><span class="p">(</span><span class="s1">&#39;/path/to/dir/&#39;</span><span class="p">,</span> <span class="s1">&#39;*.mp3&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_filenames_in_dir</span><span class="p">(</span><span class="s1">&#39;/path/to/dir/&#39;</span><span class="p">,</span> <span class="s1">&#39;*.mp3&#39;</span><span class="p">)</span>  
 <span class="go">([&#39;/path/to/dir/file1.mp3&#39;, &#39;/path/to/dir/folder1/file2.mp3&#39;], [&#39;/path/to/dir/&#39;, &#39;/path/to/dir/folder1&#39;], [&#39;file1.mp3&#39;, &#39;file2.mp3&#39;])</span>
 </pre></div>
 </div>
