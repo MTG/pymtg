@@ -117,7 +117,9 @@
     <span class="sd">&quot;&quot;&quot;Yield successive ``n``-sized chunks from ``l``.</span>
 
 <span class="sd">    Examples:</span>
-<span class="sd">        &gt;&gt;&gt; chunks([1, 2, 3, 4, 5], 2)</span>
+<span class="sd">        &gt;&gt;&gt; chunks([1, 2, 3, 4, 5], 2) #doctest: +ELLIPSIS</span>
+<span class="sd">        &lt;generator object chunks at 0x...&gt;</span>
+<span class="sd">        &gt;&gt;&gt; list(chunks([1, 2, 3, 4, 5], 2))</span>
 <span class="sd">        [[1, 2], [3, 4], [5]]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">n</span><span class="p">):</span>
