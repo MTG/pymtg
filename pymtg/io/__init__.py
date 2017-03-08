@@ -5,9 +5,11 @@ import fnmatch
 
 
 def json_dump(path, data, indent=4, verbose=False):
-    """
-    Save python dictionary ``data`` to JSON file at ``path``.
-    Set ``verbose=True`` to print additional information on screen.
+    """Save python dictionary ``data`` to JSON file at ``path``.
+
+    Args:
+        path (str): Path to the file
+        verbose (bool): Verbosity flag
     """
     with open(path, 'w') as f:
         if verbose:
@@ -16,9 +18,14 @@ def json_dump(path, data, indent=4, verbose=False):
 
 
 def json_load(path, verbose=False):
-    """
-    Load python dictionary stored in JSON file at ``path``.
-    Set ``verbose=True`` to print additional information on screen.
+    """Load python dictionary stored in JSON file at ``path``.
+
+    Args:
+        path (str): Path to the file
+        verbose (bool): Verbosity flag
+
+    Returns:
+        (dict): Loaded JSON contents
     """
     with open(path, 'r') as f:
         if verbose:
@@ -27,9 +34,11 @@ def json_load(path, verbose=False):
 
 
 def save_to_file(path, data, verbose=False):
-    """
-    Save arbitrary data to file at ``path``.
-    Set ``verbose=True`` to print additional information on screen.
+    """ Save arbitrary data to file at ``path``.
+
+    Args:
+        path (str): Path to the file
+        verbose (bool): Verbosity flag
     """
     with open(path, 'w') as f:
         if verbose:
@@ -51,21 +60,25 @@ def mkdir_p(path):
 
 
 def get_filenames_in_dir(dir_name, keyword='*', skip_foldername='', match_case=True, verbose=False):
-    """
-    Inputs
-    ``dir_name``          : the foldername
-    ``keyword``           : the keyword to search (defaults to '*')
-    ``skip_foldername``   : an optional foldername to skip searching
-    ``match_case``        : flag for case matching
-    ``verbose``           : verbose flag
+    """TODO: better document this function
+    TODO: does a python 3 version of this function exist?
 
-    Outputs:
-    ``fullnames``         : list of the fullpaths of the files found
-    ``folder``            : list of the folders of the files
-    ``names``             : list of the filenames without the foldername
+    Args:
+        dir_name (str): The foldername.
+        keyword (str): The keyword to search (defaults to '*').
+        skip_foldername (str): An optional foldername to skip searching
+        match_case (bool): Flag for case matching
+        verbose (bool): Verbosity flag
 
-    TODO: better document this function?
-    TODO: does a python 3 version of this function exist
+    Returns:
+        (tuple): Tuple containing:
+            - fullnames (list): List of the fullpaths of the files found
+            - folder (list): List of the folders of the files
+            - names (list): List of the filenames without the foldername
+
+    Examples:
+        >>> get_filenames_in_dir('/path/to/dir/', '*.mp3')
+        (['/path/to/dir/file1.mp3', '/path/to/dir/folder1/file2.mp3'], ['/path/to/dir/', '/path/to/dir/folder1'], ['file1.mp3', 'file2.mp3'])
     """
     names = []
     folders = []

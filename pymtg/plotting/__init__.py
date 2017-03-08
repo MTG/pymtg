@@ -4,8 +4,12 @@ COLORS = ['#FF4500', '#FFA500', '#6B8E23', '#32CD32', '#FFD700', '#008B8B', '#00
 
 
 def color_at_index(index):
-    """
-    Return hexadecimal color at given ``index`` from COLORS.
-    ``index`` wraps if larger than the length of COLORS.
+    """Return hexadecimal color at given ``index`` from ``COLORS``.
+
+    Args:
+        index (int): Index of color to return (wraps if larger than the length of ``COLORS``)
+
+    Returns:
+        (str): Hexadecimal color code (starts with #)
     """
     return COLORS[index % len(COLORS)]
