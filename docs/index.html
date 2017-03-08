@@ -131,32 +131,85 @@
 <dl class="function">
 <dt id="pymtg.io.get_filenames_in_dir">
 <code class="descclassname">pymtg.io.</code><code class="descname">get_filenames_in_dir</code><span class="sig-paren">(</span><em>dir_name</em>, <em>keyword='*'</em>, <em>skip_foldername=''</em>, <em>match_case=True</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#get_filenames_in_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.get_filenames_in_dir" title="Permalink to this definition">¶</a></dt>
-<dd><p>Inputs
-<code class="docutils literal"><span class="pre">dir_name</span></code>          : the foldername
-<code class="docutils literal"><span class="pre">keyword</span></code>           : the keyword to search (defaults to &#8216;*&#8217;)
-<code class="docutils literal"><span class="pre">skip_foldername</span></code>   : an optional foldername to skip searching
-<code class="docutils literal"><span class="pre">match_case</span></code>        : flag for case matching
-<code class="docutils literal"><span class="pre">verbose</span></code>           : verbose flag</p>
-<p>Outputs:
-<code class="docutils literal"><span class="pre">fullnames</span></code>         : list of the fullpaths of the files found
-<code class="docutils literal"><span class="pre">folder</span></code>            : list of the folders of the files
-<code class="docutils literal"><span class="pre">names</span></code>             : list of the filenames without the foldername</p>
-<p>TODO: better document this function?
-TODO: does a python 3 version of this function exist</p>
+<dd><p>TODO: better document this function
+TODO: does a python 3 version of this function exist?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dir_name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The foldername.</li>
+<li><strong>keyword</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The keyword to search (defaults to &#8216;*&#8217;).</li>
+<li><strong>skip_foldername</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional foldername to skip searching</li>
+<li><strong>match_case</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Flag for case matching</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Verbosity flag</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>Tuple containing:</dt>
+<dd><ul class="first last simple">
+<li>fullnames (list): List of the fullpaths of the files found</li>
+<li>folder (list): List of the folders of the files</li>
+<li>names (list): List of the filenames without the foldername</li>
+</ul>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(tuple)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_filenames_in_dir</span><span class="p">(</span><span class="s1">&#39;/path/to/dir/&#39;</span><span class="p">,</span> <span class="s1">&#39;*.mp3&#39;</span><span class="p">)</span>
+<span class="go">([&#39;/path/to/dir/file1.mp3&#39;, &#39;/path/to/dir/folder1/file2.mp3&#39;], [&#39;/path/to/dir/&#39;, &#39;/path/to/dir/folder1&#39;], [&#39;file1.mp3&#39;, &#39;file2.mp3&#39;])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="pymtg.io.json_dump">
 <code class="descclassname">pymtg.io.</code><code class="descname">json_dump</code><span class="sig-paren">(</span><em>path</em>, <em>data</em>, <em>indent=4</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#json_dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.json_dump" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save python dictionary <code class="docutils literal"><span class="pre">data</span></code> to JSON file at <code class="docutils literal"><span class="pre">path</span></code>.
-Set <code class="docutils literal"><span class="pre">verbose=True</span></code> to print additional information on screen.</p>
+<dd><p>Save python dictionary <code class="docutils literal"><span class="pre">data</span></code> to JSON file at <code class="docutils literal"><span class="pre">path</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Path to the file</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Verbosity flag</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pymtg.io.json_load">
 <code class="descclassname">pymtg.io.</code><code class="descname">json_load</code><span class="sig-paren">(</span><em>path</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#json_load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.json_load" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load python dictionary stored in JSON file at <code class="docutils literal"><span class="pre">path</span></code>.
-Set <code class="docutils literal"><span class="pre">verbose=True</span></code> to print additional information on screen.</p>
+<dd><p>Load python dictionary stored in JSON file at <code class="docutils literal"><span class="pre">path</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Path to the file</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Verbosity flag</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Loaded JSON contents</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(dict)</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -168,8 +221,19 @@ Set <code class="docutils literal"><span class="pre">verbose=True</span></code> 
 <dl class="function">
 <dt id="pymtg.io.save_to_file">
 <code class="descclassname">pymtg.io.</code><code class="descname">save_to_file</code><span class="sig-paren">(</span><em>path</em>, <em>data</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#save_to_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.save_to_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save arbitrary data to file at <code class="docutils literal"><span class="pre">path</span></code>.
-Set <code class="docutils literal"><span class="pre">verbose=True</span></code> to print additional information on screen.</p>
+<dd><p>Save arbitrary data to file at <code class="docutils literal"><span class="pre">path</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Path to the file</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Verbosity flag</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -187,8 +251,19 @@ Set <code class="docutils literal"><span class="pre">verbose=True</span></code> 
 <dl class="function">
 <dt id="pymtg.plotting.color_at_index">
 <code class="descclassname">pymtg.plotting.</code><code class="descname">color_at_index</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/plotting.html#color_at_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.plotting.color_at_index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return hexadecimal color at given <code class="docutils literal"><span class="pre">index</span></code> from COLORS.
-<code class="docutils literal"><span class="pre">index</span></code> wraps if larger than the length of COLORS.</p>
+<dd><p>Return hexadecimal color at given <code class="docutils literal"><span class="pre">index</span></code> from <code class="docutils literal"><span class="pre">COLORS</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Index of color to return (wraps if larger than the length of <code class="docutils literal"><span class="pre">COLORS</span></code>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Hexadecimal color code (starts with #)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(str)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>

@@ -120,9 +120,11 @@
 
 
 <div class="viewcode-block" id="json_dump"><a class="viewcode-back" href="../../index.html#pymtg.io.json_dump">[docs]</a><span class="k">def</span> <span class="nf">json_dump</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Save python dictionary ``data`` to JSON file at ``path``.</span>
-<span class="sd">    Set ``verbose=True`` to print additional information on screen.</span>
+    <span class="sd">&quot;&quot;&quot;Save python dictionary ``data`` to JSON file at ``path``.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): Path to the file</span>
+<span class="sd">        verbose (bool): Verbosity flag</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
@@ -131,9 +133,14 @@
 
 
 <div class="viewcode-block" id="json_load"><a class="viewcode-back" href="../../index.html#pymtg.io.json_load">[docs]</a><span class="k">def</span> <span class="nf">json_load</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Load python dictionary stored in JSON file at ``path``.</span>
-<span class="sd">    Set ``verbose=True`` to print additional information on screen.</span>
+    <span class="sd">&quot;&quot;&quot;Load python dictionary stored in JSON file at ``path``.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): Path to the file</span>
+<span class="sd">        verbose (bool): Verbosity flag</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (dict): Loaded JSON contents</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
@@ -142,9 +149,11 @@
 
 
 <div class="viewcode-block" id="save_to_file"><a class="viewcode-back" href="../../index.html#pymtg.io.save_to_file">[docs]</a><span class="k">def</span> <span class="nf">save_to_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Save arbitrary data to file at ``path``.</span>
-<span class="sd">    Set ``verbose=True`` to print additional information on screen.</span>
+    <span class="sd">&quot;&quot;&quot; Save arbitrary data to file at ``path``.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): Path to the file</span>
+<span class="sd">        verbose (bool): Verbosity flag</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
@@ -166,21 +175,25 @@
 
 
 <div class="viewcode-block" id="get_filenames_in_dir"><a class="viewcode-back" href="../../index.html#pymtg.io.get_filenames_in_dir">[docs]</a><span class="k">def</span> <span class="nf">get_filenames_in_dir</span><span class="p">(</span><span class="n">dir_name</span><span class="p">,</span> <span class="n">keyword</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">skip_foldername</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">match_case</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Inputs</span>
-<span class="sd">    ``dir_name``          : the foldername</span>
-<span class="sd">    ``keyword``           : the keyword to search (defaults to &#39;*&#39;)</span>
-<span class="sd">    ``skip_foldername``   : an optional foldername to skip searching</span>
-<span class="sd">    ``match_case``        : flag for case matching</span>
-<span class="sd">    ``verbose``           : verbose flag</span>
+    <span class="sd">&quot;&quot;&quot;TODO: better document this function</span>
+<span class="sd">    TODO: does a python 3 version of this function exist?</span>
 
-<span class="sd">    Outputs:</span>
-<span class="sd">    ``fullnames``         : list of the fullpaths of the files found</span>
-<span class="sd">    ``folder``            : list of the folders of the files</span>
-<span class="sd">    ``names``             : list of the filenames without the foldername</span>
+<span class="sd">    Args:</span>
+<span class="sd">        dir_name (str): The foldername.</span>
+<span class="sd">        keyword (str): The keyword to search (defaults to &#39;*&#39;).</span>
+<span class="sd">        skip_foldername (str): An optional foldername to skip searching</span>
+<span class="sd">        match_case (bool): Flag for case matching</span>
+<span class="sd">        verbose (bool): Verbosity flag</span>
 
-<span class="sd">    TODO: better document this function?</span>
-<span class="sd">    TODO: does a python 3 version of this function exist</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (tuple): Tuple containing:</span>
+<span class="sd">            - fullnames (list): List of the fullpaths of the files found</span>
+<span class="sd">            - folder (list): List of the folders of the files</span>
+<span class="sd">            - names (list): List of the filenames without the foldername</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; get_filenames_in_dir(&#39;/path/to/dir/&#39;, &#39;*.mp3&#39;)</span>
+<span class="sd">        ([&#39;/path/to/dir/file1.mp3&#39;, &#39;/path/to/dir/folder1/file2.mp3&#39;], [&#39;/path/to/dir/&#39;, &#39;/path/to/dir/folder1&#39;], [&#39;file1.mp3&#39;, &#39;file2.mp3&#39;])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">folders</span> <span class="o">=</span> <span class="p">[]</span>

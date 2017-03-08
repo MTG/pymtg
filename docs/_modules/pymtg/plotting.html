@@ -119,9 +119,13 @@
 
 
 <div class="viewcode-block" id="color_at_index"><a class="viewcode-back" href="../../index.html#pymtg.plotting.color_at_index">[docs]</a><span class="k">def</span> <span class="nf">color_at_index</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return hexadecimal color at given ``index`` from COLORS.</span>
-<span class="sd">    ``index`` wraps if larger than the length of COLORS.</span>
+    <span class="sd">&quot;&quot;&quot;Return hexadecimal color at given ``index`` from ``COLORS``.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        index (int): Index of color to return (wraps if larger than the length of ``COLORS``)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (str): Hexadecimal color code (starts with #)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">COLORS</span><span class="p">[</span><span class="n">index</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">COLORS</span><span class="p">)]</span></div>
 </pre></div>
