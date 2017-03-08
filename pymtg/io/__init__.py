@@ -85,7 +85,7 @@ def get_filenames_in_dir(dir_name, keyword='*', skip_foldername='', match_case=T
     fullnames = []
 
     if verbose:
-        print dir_name
+        print(dir_name)
 
     # check if the folder exists
     if not os.path.isdir(dir_name):
