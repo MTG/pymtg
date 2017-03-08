@@ -77,7 +77,7 @@ def get_filenames_in_dir(dir_name, keyword='*', skip_foldername='', match_case=T
             - names (list): List of the filenames without the foldername
 
     Examples:
-        >>> get_filenames_in_dir('/path/to/dir/', '*.mp3')
+        >>> get_filenames_in_dir('/path/to/dir/', '*.mp3')  #doctest: +SKIP
         (['/path/to/dir/file1.mp3', '/path/to/dir/folder1/file2.mp3'], ['/path/to/dir/', '/path/to/dir/folder1'], ['file1.mp3', 'file2.mp3'])
     """
     names = []
