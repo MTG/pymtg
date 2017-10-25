@@ -7,4 +7,5 @@ setup(name='pymtg',
       author='Music Technology Group',
       author_email='mtg-info@upf.edu',
       license='MIT',
+      install_requires=['numpy'],
       packages=find_packages())
