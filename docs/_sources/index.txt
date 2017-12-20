@@ -38,6 +38,15 @@ pymtg.plotting
     :show-inheritance:
 
 
+pymtg.signal
+------------
+
+.. automodule:: pymtg.signal
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
 pymtg.time
 ----------
 
