@@ -50,7 +50,7 @@ def smooth(x, window_len=11, window='hanning', preserve_length=True):
 
 
 def linear_approximation(x, include_coeffs=False):
-    """Compute the least squares polynomial fit of first degree of x (linear approximation).
+    """Compute the first degree least squares polynomial fit of x (linear approximation).
 
     This function returns the linear approximation as a signal of the same length of x.
     If requested, the function can also return the linear approximation coefficients as
