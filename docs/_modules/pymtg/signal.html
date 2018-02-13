@@ -136,7 +136,7 @@
 <span class="sd">            as the length of the input signal (default=True).</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        (array): Tthe smoothed signal</span>
+<span class="sd">        (array): The smoothed signal</span>
 <span class="sd">        </span>
 <span class="sd">    Examples:</span>
 <span class="sd">        &gt;&gt;&gt; smooth([0, 1, 0, 1, 0, 1], 4)</span>
@@ -162,6 +162,42 @@
     <span class="k">if</span> <span class="n">preserve_length</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">y</span><span class="p">[(</span><span class="n">window_len</span><span class="o">//</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span><span class="o">-</span><span class="p">(</span><span class="n">window_len</span><span class="o">//</span><span class="mi">2</span><span class="p">)][:</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">y</span></div>
+
+
+<div class="viewcode-block" id="linear_approximation"><a class="viewcode-back" href="../../index.html#pymtg.signal.linear_approximation">[docs]</a><span class="k">def</span> <span class="nf">linear_approximation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">include_coeffs</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute the least squares polynomial fit of first degree of x (linear approximation).</span>
+
+<span class="sd">    This function returns the linear approximation as a signal of the same length of x.</span>
+<span class="sd">    If requested, the function can also return the linear approximation coefficients as</span>
+<span class="sd">    returned by Numpy&#39;s &#39;polyfit&#39; function. For more details in the method used for the linear</span>
+<span class="sd">    approximation, see https://docs.scipy.org/doc/numpy/reference/generated/numpy.polyfit.html.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (array): The input signal </span>
+<span class="sd">        include_coeffs (bool): Whether to return the computed linear approximation coefficients </span>
+<span class="sd">            along with the approximated signal (default=False).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (array): The linear approximation of then input signal</span>
+<span class="sd">        </span>
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; linear_approximation([1, 1, 1])</span>
+<span class="sd">        array([ 1.,  1.,  1.])</span>
+<span class="sd">        &gt;&gt;&gt; linear_approximation([0, 1, 2, 3, 4, 5])</span>
+<span class="sd">        array([ 0.,  1.,  2.,  3.,  4.,  5.])</span>
+<span class="sd">        &gt;&gt;&gt; linear_approximation([1, 2, 4, 8, 16])</span>
+<span class="sd">        array([ -1. ,   2.6,   6.2,   9.8,  13.4])</span>
+<span class="sd">        &gt;&gt;&gt; linear_approximation([1, 2, 4, 8, 16], include_coeffs=True)</span>
+<span class="sd">        (array([ -1. ,   2.6,   6.2,   9.8,  13.4]), (3.6000000000000001, -0.99999999999999778))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">x_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">a</span><span class="o">*</span><span class="n">i</span> <span class="o">+</span> <span class="n">b</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">include_coeffs</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x_fit</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x_fit</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span></div>
+
+
 </pre></div>
 
     </div>

@@ -286,6 +286,46 @@ TODO: does a python 3 version of this function exist?</p>
 <div class="section" id="module-pymtg.signal">
 <span id="pymtg-signal"></span><h2>pymtg.signal<a class="headerlink" href="#module-pymtg.signal" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
+<dt id="pymtg.signal.linear_approximation">
+<code class="descclassname">pymtg.signal.</code><code class="descname">linear_approximation</code><span class="sig-paren">(</span><em>x</em>, <em>include_coeffs=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/signal.html#linear_approximation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.signal.linear_approximation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the least squares polynomial fit of first degree of x (linear approximation).</p>
+<p>This function returns the linear approximation as a signal of the same length of x.
+If requested, the function can also return the linear approximation coefficients as
+returned by Numpy&#8217;s &#8216;polyfit&#8217; function. For more details in the method used for the linear
+approximation, see <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.polyfit.html">https://docs.scipy.org/doc/numpy/reference/generated/numpy.polyfit.html</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; The input signal</li>
+<li><strong>include_coeffs</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Whether to return the computed linear approximation coefficients
+along with the approximated signal (default=False).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The linear approximation of then input signal</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(array)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">linear_approximation</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="go">array([ 1.,  1.,  1.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">linear_approximation</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="go">array([ 0.,  1.,  2.,  3.,  4.,  5.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">linear_approximation</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+<span class="go">array([ -1. ,   2.6,   6.2,   9.8,  13.4])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">linear_approximation</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">],</span> <span class="n">include_coeffs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">(array([ -1. ,   2.6,   6.2,   9.8,  13.4]), (3.6000000000000001, -0.99999999999999778))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="pymtg.signal.smooth">
 <code class="descclassname">pymtg.signal.</code><code class="descname">smooth</code><span class="sig-paren">(</span><em>x</em>, <em>window_len=11</em>, <em>window='hanning'</em>, <em>preserve_length=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/signal.html#smooth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.signal.smooth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Smooth the data using a window with requested size.</p>
@@ -309,7 +349,7 @@ as the length of the input signal (default=True).</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Tthe smoothed signal</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The smoothed signal</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(array)</p>
@@ -368,7 +408,7 @@ interval (default=False)</li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_range</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">step_interval</span><span class="o">=</span><span class="s1">&#39;minute&#39;</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="go">[datetime.datetime(2017, 1, 1, 11, 0), datetime.datetime(2017, 1, 1, 11, 10), datetime.datetime(2017, 1, 1, 11, 20)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_range</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">return_pairs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="go"> [(datetime.datetime(2017, 1, 1, 0, 0), datetime.datetime(2017, 1, 2, 0, 0)), (datetime.datetime(2017, 1, 2, 0, 0), datetime.datetime(2017, 1, 3, 0, 0))]</span>
+<span class="go">[(datetime.datetime(2017, 1, 1, 0, 0), datetime.datetime(2017, 1, 2, 0, 0)), (datetime.datetime(2017, 1, 2, 0, 0), datetime.datetime(2017, 1, 3, 0, 0))]</span>
 </pre></div>
 </div>
 </dd></dl>
