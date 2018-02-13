@@ -46,7 +46,7 @@ def datetime_range(start_datetime, end_datetime=None, step_interval=None, n_step
         >>> datetime_range(datetime.datetime(2017,1,1,11,0,0), datetime.datetime(2017,1,1,11,20,0), step_interval='minute', n_steps=10)
         [datetime.datetime(2017, 1, 1, 11, 0), datetime.datetime(2017, 1, 1, 11, 10), datetime.datetime(2017, 1, 1, 11, 20)]
         >>> datetime_range(datetime.datetime(2017,1,1), datetime.datetime(2017,1,3), return_pairs=True)
-         [(datetime.datetime(2017, 1, 1, 0, 0), datetime.datetime(2017, 1, 2, 0, 0)), (datetime.datetime(2017, 1, 2, 0, 0), datetime.datetime(2017, 1, 3, 0, 0))]
+        [(datetime.datetime(2017, 1, 1, 0, 0), datetime.datetime(2017, 1, 2, 0, 0)), (datetime.datetime(2017, 1, 2, 0, 0), datetime.datetime(2017, 1, 3, 0, 0))]
     """
 
     if end_datetime is None:
