@@ -3,10 +3,12 @@ from ..time import time_stats
 
 
 class WorkParallelizer(object):
-    """
-    Utility class to parallelize tasks using either Threads or Processes.
-    This utility class is based on concurrent.futures. See https://docs.python.org/3/library/concurrent.futures.html.
-    Use it like that:
+    """Utility class to parallelize tasks using either Threads or Processes.
+
+This utility class is based on concurrent.futures.
+See https://docs.python.org/3/library/concurrent.futures.html.
+
+.. code-block:: python
 
     # Inititalize the work parallelizer
     wp = WorkParallelizer()
@@ -22,7 +24,6 @@ class WorkParallelizer(object):
 
     # Show errors after computing all tasks (if any)
     if wp.num_tasks_failed > 0:
-        print('\nErrors:')
         wp.show_errors()
     """
 

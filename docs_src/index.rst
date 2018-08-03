@@ -37,6 +37,17 @@ pymtg.plotting
     :undoc-members:
     :show-inheritance:
 
+pymtg.processing
+----------------
+
+.. automodule:: pymtg.processing
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+.. autoclass:: WorkParallelizer
+
 
 pymtg.signal
 ------------
