@@ -198,7 +198,8 @@ See https://docs.python.org/3/library/concurrent.futures.html.
                 num_tasks_completed, self.num_tasks, self.num_tasks_running, remaining_time), end='')
 
         if num_tasks_completed == self.num_tasks:  # All tasks have been completed
-            print('\nAll tasks compelted! [{0} succeeded, {1} failed]'.format(self.num_tasks_succeeded,
+            print('')
+            print('All tasks compelted! [{0} succeeded, {1} failed]'.format(self.num_tasks_succeeded,
                                                                               self.num_tasks_failed))
             return True
         return False
