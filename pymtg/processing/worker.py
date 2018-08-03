@@ -1,3 +1,4 @@
+from __future__ import print_function
 from concurrent.futures import ThreadPoolExecutor, TimeoutError, ProcessPoolExecutor
 from ..time import time_stats
 import time
@@ -188,12 +189,18 @@ See https://docs.python.org/3/library/concurrent.futures.html.
                 display(self.progress_widget)
             self.progress_widget.value = num_tasks_completed
 
-        print('\r[{0}/{1}, {2} running] {3}'.format(
-            num_tasks_completed, self.num_tasks, self.num_tasks_running, remaining_time))
+        try:
+            print('\r[{0}/{1}, {2} running] {3}'.format(
+                num_tasks_completed, self.num_tasks, self.num_tasks_running, remaining_time), end='', flush=True)
+        except TypeError:
+            # Backported "print" function in Py2 does not implement flush
+            print('\r[{0}/{1}, {2} running] {3}'.format(
+                num_tasks_completed, self.num_tasks, self.num_tasks_running, remaining_time), end='')
 
         if num_tasks_completed == self.num_tasks:  # All tasks have been completed
             print('\nAll tasks compelted! [{0} succeeded, {1} failed]'.format(self.num_tasks_succeeded,
                                                                               self.num_tasks_failed))
+            return True
         return False
 
     def show_progress_blocking(self, interval_seconds=0.2):
