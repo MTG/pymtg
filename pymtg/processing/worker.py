@@ -1,5 +1,6 @@
 from concurrent.futures import ThreadPoolExecutor, TimeoutError, ProcessPoolExecutor
 from ..time import time_stats
+import time
 
 
 class WorkParallelizer(object):
