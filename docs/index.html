@@ -158,7 +158,7 @@ TODO: does a python 3 version of this function exist?</p>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_filenames_in_dir</span><span class="p">(</span><span class="s1">&#39;/path/to/dir/&#39;</span><span class="p">,</span> <span class="s1">&#39;*.mp3&#39;</span><span class="p">)</span>  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_filenames_in_dir</span><span class="p">(</span><span class="s1">&#39;/path/to/dir/&#39;</span><span class="p">,</span> <span class="s1">&#39;*.mp3&#39;</span><span class="p">)</span>  <span class="c1">#doctest: +SKIP</span>
 <span class="go">([&#39;/path/to/dir/file1.mp3&#39;, &#39;/path/to/dir/folder1/file2.mp3&#39;], [&#39;/path/to/dir/&#39;, &#39;/path/to/dir/folder1&#39;], [&#39;file1.mp3&#39;, &#39;file2.mp3&#39;])</span>
 </pre></div>
 </div>
@@ -238,7 +238,7 @@ TODO: does a python 3 version of this function exist?</p>
 <code class="descclassname">pymtg.iterables.</code><code class="descname">chunks</code><span class="sig-paren">(</span><em>l</em>, <em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/iterables.html#chunks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.iterables.chunks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Yield successive <code class="docutils literal notranslate"><span class="pre">n</span></code>-sized chunks from <code class="docutils literal notranslate"><span class="pre">l</span></code>.</p>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chunks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chunks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#doctest: +ELLIPSIS</span>
 <span class="go">&lt;generator object chunks at 0x...&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">chunks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span>
 <span class="go">[[1, 2], [3, 4], [5]]</span>
@@ -403,7 +403,7 @@ interval (default=False)</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of <code class="docutils literal notranslate"><span class="pre">datetime.dateitme</span></code> objects (or tuples of two <code class="docutils literal notranslate"><span class="pre">datetime.dateitme</span></code> if <code class="docutils literal notranslate"><span class="pre">return_pairs=True</span></code>)</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> objects (or tuples of two <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> if <code class="docutils literal notranslate"><span class="pre">return_pairs=True</span></code>)</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)">list</a>)</p>
@@ -429,7 +429,27 @@ interval (default=False)</li>
 <dl class="function">
 <dt id="pymtg.time.time_stats">
 <code class="descclassname">pymtg.time.</code><code class="descname">time_stats</code><span class="sig-paren">(</span><em>done</em>, <em>total</em>, <em>starttime</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/time.html#time_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.time.time_stats" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO: document that function</p>
+<dd><p>Count how far through a repeated operation you are.</p>
+<p>Use this method if you are performing a repeated operation over
+a list of items and you want to check progress and time remaining
+after each iteration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>done</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – how many items have been processed</li>
+<li><strong>total</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – the total number of items that are to be processed</li>
+<li><strong>starttime</strong> – the result of an initial call to time.monotonic()</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A tuple of (time elapsed, time remaining), as a string representation
+of a timedelta</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -448,7 +468,7 @@ interval (default=False)</li>
     </p>
     <p>
         &copy; Copyright 2017, Music Technology Group, UPF.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.<br/>
     </p>
   </div>
 </footer>

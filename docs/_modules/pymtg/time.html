@@ -101,10 +101,22 @@
 
 
 <div class="viewcode-block" id="time_stats"><a class="viewcode-back" href="../../index.html#pymtg.time.time_stats">[docs]</a><span class="k">def</span> <span class="nf">time_stats</span><span class="p">(</span><span class="n">done</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="n">starttime</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    TODO: document that function</span>
+    <span class="sd">&quot;&quot;&quot;Count how far through a repeated operation you are.</span>
+
+<span class="sd">    Use this method if you are performing a repeated operation over</span>
+<span class="sd">    a list of items and you want to check progress and time remaining</span>
+<span class="sd">    after each iteration.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        done (int): how many items have been processed</span>
+<span class="sd">        total (int): the total number of items that are to be processed</span>
+<span class="sd">        starttime: the result of an initial call to time.monotonic()</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A tuple of (time elapsed, time remaining), as a string representation</span>
+<span class="sd">        of a timedelta</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">nowtime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">nowtime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
     <span class="n">position</span> <span class="o">=</span> <span class="n">done</span><span class="o">*</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">total</span>
     <span class="n">duration</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">nowtime</span> <span class="o">-</span> <span class="n">starttime</span><span class="p">)</span>
     <span class="n">durdelta</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">duration</span><span class="p">)</span>
@@ -114,7 +126,7 @@
     <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">durdelta</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">remdelta</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="datetime_range"><a class="viewcode-back" href="../../index.html#pymtg.time.datetime_range">[docs]</a><span class="k">def</span> <span class="nf">datetime_range</span><span class="p">(</span><span class="n">start_datetime</span><span class="p">,</span> <span class="n">end_datetime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">step_interval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">snap_to_date</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+<div class="viewcode-block" id="datetime_range"><a class="viewcode-back" href="../../index.html#pymtg.time.datetime_range">[docs]</a><span class="k">def</span> <span class="nf">datetime_range</span><span class="p">(</span><span class="n">start_datetime</span><span class="p">,</span> <span class="n">end_datetime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">step_interval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">snap_to_date</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                    <span class="n">return_pairs</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Return a list of dates inside the date range between ``start_datetime`` and ``end_datetime``,</span>
 <span class="sd">    equally spaced in ``step`` time intervals.</span>
@@ -122,17 +134,17 @@
 <span class="sd">    Args:</span>
 <span class="sd">        start_datetime (datetime): Starting time of the range</span>
 <span class="sd">        end_datetime (datetime): End of the time range (included if range is multiple of step). Defaults to today</span>
-<span class="sd">        step_interval (timedelta,str): time interval of between list elements. Can be a ``datetime.timedelta`` </span>
+<span class="sd">        step_interval (timedelta,str): time interval of between list elements. Can be a ``datetime.timedelta``</span>
 <span class="sd">            object or a string from [&#39;day&#39;, &#39;second&#39;, &#39;microsecond&#39;, &#39;millisecond&#39;, &#39;minute&#39;, &#39;hour&#39;, &#39;week&#39;].</span>
 <span class="sd">            Defaults to 1 day.</span>
 <span class="sd">        n_steps (int): number of steps to be applied between list elements (default=1)</span>
-<span class="sd">        snap_to_date (bool): Whether to disregard hour, minutes and seconds information (as a date object, </span>
+<span class="sd">        snap_to_date (bool): Whether to disregard hour, minutes and seconds information (as a date object,</span>
 <span class="sd">            default=False)</span>
-<span class="sd">        return_pairs (bool): Whether to return a simple list or a list of pairs with edge dates for each </span>
+<span class="sd">        return_pairs (bool): Whether to return a simple list or a list of pairs with edge dates for each</span>
 <span class="sd">            interval (default=False)</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        (list): List of ``datetime.dateitme`` objects (or tuples of two ``datetime.dateitme`` if ``return_pairs=True``)</span>
+<span class="sd">        (list): List of ``datetime.datetime`` objects (or tuples of two ``datetime.datetime`` if ``return_pairs=True``)</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">        &gt;&gt;&gt; datetime_range(datetime.datetime(2017,1,1), datetime.datetime(2017,1,3))</span>
@@ -197,7 +209,7 @@
     </p>
     <p>
         &copy; Copyright 2017, Music Technology Group, UPF.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.<br/>
     </p>
   </div>
 </footer>
