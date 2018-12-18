@@ -3,10 +3,22 @@ import datetime
 
 
 def time_stats(done, total, starttime):
+    """Count how far through a repeated operation you are.
+
+    Use this method if you are performing a repeated operation over
+    a list of items and you want to check progress and time remaining
+    after each iteration.
+
+    Args:
+        done (int): how many items have been processed
+        total (int): the total number of items that are to be processed
+        starttime: the result of an initial call to time.monotonic()
+
+    Returns:
+        A tuple of (time elapsed, time remaining), as a string representation
+        of a timedelta
     """
-    TODO: document that function
-    """
-    nowtime = time.time()
+    nowtime = time.monotonic()
     position = done*1.0 / total
     duration = round(nowtime - starttime)
     durdelta = datetime.timedelta(seconds=duration)
@@ -16,7 +28,7 @@ def time_stats(done, total, starttime):
     return str(durdelta), str(remdelta)
 
 
-def datetime_range(start_datetime, end_datetime=None, step_interval=None, n_steps=1, snap_to_date=False, 
+def datetime_range(start_datetime, end_datetime=None, step_interval=None, n_steps=1, snap_to_date=False,
                    return_pairs=False):
     """Return a list of dates inside the date range between ``start_datetime`` and ``end_datetime``,
     equally spaced in ``step`` time intervals.
@@ -24,13 +36,13 @@ def datetime_range(start_datetime, end_datetime=None, step_interval=None, n_step
     Args:
         start_datetime (datetime): Starting time of the range
         end_datetime (datetime): End of the time range (included if range is multiple of step). Defaults to today
-        step_interval (timedelta,str): time interval of between list elements. Can be a ``datetime.timedelta`` 
+        step_interval (timedelta,str): time interval of between list elements. Can be a ``datetime.timedelta``
             object or a string from ['day', 'second', 'microsecond', 'millisecond', 'minute', 'hour', 'week'].
             Defaults to 1 day.
         n_steps (int): number of steps to be applied between list elements (default=1)
-        snap_to_date (bool): Whether to disregard hour, minutes and seconds information (as a date object, 
+        snap_to_date (bool): Whether to disregard hour, minutes and seconds information (as a date object,
             default=False)
-        return_pairs (bool): Whether to return a simple list or a list of pairs with edge dates for each 
+        return_pairs (bool): Whether to return a simple list or a list of pairs with edge dates for each
             interval (default=False)
 
     Returns:
