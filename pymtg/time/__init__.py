@@ -46,7 +46,7 @@ def datetime_range(start_datetime, end_datetime=None, step_interval=None, n_step
             interval (default=False)
 
     Returns:
-        (list): List of ``datetime.dateitme`` objects (or tuples of two ``datetime.dateitme`` if ``return_pairs=True``)
+        (list): List of ``datetime.datetime`` objects (or tuples of two ``datetime.datetime`` if ``return_pairs=True``)
 
     Examples:
         >>> datetime_range(datetime.datetime(2017,1,1), datetime.datetime(2017,1,3))
