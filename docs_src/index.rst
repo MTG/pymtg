@@ -1,6 +1,15 @@
 pymtg documentation
 ===================
 
+Tip of the week
+---------------
+
+.. toctree::
+
+   tips/tip0
+   tips/tip1
+   tips/tip2
+
 Installation
 ------------
 
