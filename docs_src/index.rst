@@ -1,8 +1,8 @@
 pymtg documentation
 ===================
 
-:ref:`tips`
------------
+:doc:`Tip of the week <tips/tips>`
+----------------------------------
 
 Installation
 ------------

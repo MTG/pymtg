@@ -15,7 +15,7 @@ Docs are hosted using Github Pages and can be found here
 Docs are built using [Sphinx](http://www.sphinx-doc.org/en/stable/).
 Use the following commands:
 ```
-pip install sphinx sphinx_bootstrap_theme sphinxcontrib-napoleon
+pip install -r requirements_docs.txt
 make html
 ```
 

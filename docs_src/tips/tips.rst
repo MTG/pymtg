@@ -1,5 +1,3 @@
-.. _tips:
-
 Tip of the week
 ---------------
 
