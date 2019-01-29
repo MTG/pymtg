@@ -6,4 +6,6 @@ Tip of the week
    tip0
    tip1
    tip2
+   tip3
+
 
