@@ -38,7 +38,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'pymtg'
-copyright = u'2017, Music Technology Group, UPF'
+copyright = u'2019, Music Technology Group, UPF'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
