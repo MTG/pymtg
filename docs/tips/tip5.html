@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Tip of the week &#8212; pymtg 0.1 documentation</title>
+    <title>Python tip of the week 5, Sets &#8212; pymtg 0.1 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -63,7 +63,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Tip of the week</a></li>
+<li><a class="reference internal" href="#">Python tip of the week 5, Sets</a></li>
 </ul>
 </ul>
 </li>
@@ -79,7 +79,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="../_sources/tips/tips.rst.txt"
+  <a href="../_sources/tips/tip5.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -103,24 +103,25 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="tip-of-the-week">
-<h1>Tip of the week<a class="headerlink" href="#tip-of-the-week" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tip0.html">Free tip 0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tip1.html">Python tip of the week 1, timing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tip2.html">Python tip of the week 2, access speed of data structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tip3.html">Python tip of the week 3, Python Lists</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tip3.html#processing-elements-in-lists">Processing elements in lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tip3.html#filtering-elements-in-lists">Filtering elements in lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tip3.html#flatten-a-nested-list">Flatten a nested list</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tip3.html#combining-multiple-lists">Combining multiple lists</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tip4.html">Python tip of the week 4, Dictionaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tip5.html">Python tip of the week 5, Sets</a></li>
-</ul>
+  <div class="section" id="python-tip-of-the-week-5-sets">
+<h1>Python tip of the week 5, Sets<a class="headerlink" href="#python-tip-of-the-week-5-sets" title="Permalink to this headline">¶</a></h1>
+<p>The last major datatype of python (after lists and dictionaries the last few weeks)</p>
+<p>Sets are “unordered collections of unique elements” - <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#set-types-set-frozenset">https://docs.python.org/3.7/library/stdtypes.html#set-types-set-frozenset</a></p>
+<p>We mentioned sets for speed of membership tests in tip #2, but they are also useful for quickly calculating mathematical set operations.</p>
+<p>This is especially useful when you want to calculate the intersection or difference of two collections of items. You can quickly convert a list into a set to perform this operation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">aset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">aset</span> <span class="o">&amp;</span> <span class="n">bset</span>  <span class="c1"># intersection, or aset.intersection(bset)</span>
+<span class="go">set([1, 2, 3])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">aset</span> <span class="o">-</span> <span class="n">bset</span> <span class="c1"># difference, or aset.difference(bset)</span>
+<span class="go">set([&#39;a&#39;, &#39;c&#39;, &#39;b&#39;])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bset</span> <span class="o">-</span> <span class="n">aset</span>
+<span class="go">set([&#39;y&#39;, &#39;x&#39;, &#39;z&#39;])</span>
+</pre></div>
 </div>
+<p>Note that sets are unordered, you can’t guarantee that converting a list to a set and back to a list again will result in the items remaining in the same order.</p>
 </div>
 
 

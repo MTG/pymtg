@@ -8,5 +8,6 @@ Tip of the week
    tip2
    tip3
    tip4
+   tip5
 
 
