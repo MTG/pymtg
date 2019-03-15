@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pymtg documentation &#8212; pymtg 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          pymtg</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">pymtg documentation</a><ul>
+<li><a class="reference internal" href="#tip-of-the-week"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">week</span></code></a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#module-pymtg.io">pymtg.io</a></li>
+<li><a class="reference internal" href="#module-pymtg.iterables">pymtg.iterables</a></li>
+<li><a class="reference internal" href="#module-pymtg.plotting">pymtg.plotting</a></li>
+<li><a class="reference internal" href="#module-pymtg.processing">pymtg.processing</a></li>
+<li><a class="reference internal" href="#module-pymtg.signal">pymtg.signal</a></li>
+<li><a class="reference internal" href="#module-pymtg.time">pymtg.time</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/index.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="pymtg-documentation">
+<h1>pymtg documentation<a class="headerlink" href="#pymtg-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tip-of-the-week">
+<h2><a class="reference internal" href="tips/tips.html"><span class="doc">Tip of the week</span></a><a class="headerlink" href="#tip-of-the-week" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>You can install <code class="docutils literal notranslate"><span class="pre">pymtg</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install git+https://github.com/MTG/pymtg
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-pymtg.io">
+<span id="pymtg-io"></span><h2>pymtg.io<a class="headerlink" href="#module-pymtg.io" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pymtg.io.get_filenames_in_dir">
+<code class="descclassname">pymtg.io.</code><code class="descname">get_filenames_in_dir</code><span class="sig-paren">(</span><em>dir_name</em>, <em>keyword='*'</em>, <em>skip_foldername=''</em>, <em>match_case=True</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#get_filenames_in_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.get_filenames_in_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO: better document this function
+TODO: does a python 3 version of this function exist?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dir_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The foldername.</li>
+<li><strong>keyword</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The keyword to search (defaults to ‘*’).</li>
+<li><strong>skip_foldername</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – An optional foldername to skip searching</li>
+<li><strong>match_case</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Flag for case matching</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Verbosity flag</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>Tuple containing:</dt>
+<dd><ul class="first last simple">
+<li>fullnames (list): List of the fullpaths of the files found</li>
+<li>folder (list): List of the folders of the files</li>
+<li>names (list): List of the filenames without the foldername</li>
+</ul>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)">tuple</a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_filenames_in_dir</span><span class="p">(</span><span class="s1">&#39;/path/to/dir/&#39;</span><span class="p">,</span> <span class="s1">&#39;*.mp3&#39;</span><span class="p">)</span>  <span class="c1">#doctest: +SKIP</span>
+<span class="go">([&#39;/path/to/dir/file1.mp3&#39;, &#39;/path/to/dir/folder1/file2.mp3&#39;], [&#39;/path/to/dir/&#39;, &#39;/path/to/dir/folder1&#39;], [&#39;file1.mp3&#39;, &#39;file2.mp3&#39;])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pymtg.io.json_dump">
+<code class="descclassname">pymtg.io.</code><code class="descname">json_dump</code><span class="sig-paren">(</span><em>path</em>, <em>data</em>, <em>indent=4</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#json_dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.json_dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save python dictionary <code class="docutils literal notranslate"><span class="pre">data</span></code> to JSON file at <code class="docutils literal notranslate"><span class="pre">path</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path to the file</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Verbosity flag</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pymtg.io.json_load">
+<code class="descclassname">pymtg.io.</code><code class="descname">json_load</code><span class="sig-paren">(</span><em>path</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#json_load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.json_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load python dictionary stored in JSON file at <code class="docutils literal notranslate"><span class="pre">path</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path to the file</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Verbosity flag</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Loaded JSON contents</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)">dict</a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pymtg.io.mkdir_p">
+<code class="descclassname">pymtg.io.</code><code class="descname">mkdir_p</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#mkdir_p"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.mkdir_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO: document this function</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pymtg.io.save_to_file">
+<code class="descclassname">pymtg.io.</code><code class="descname">save_to_file</code><span class="sig-paren">(</span><em>path</em>, <em>data</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/io.html#save_to_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.io.save_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save arbitrary data to file at <code class="docutils literal notranslate"><span class="pre">path</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path to the file</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Verbosity flag</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymtg.iterables">
+<span id="pymtg-iterables"></span><h2>pymtg.iterables<a class="headerlink" href="#module-pymtg.iterables" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pymtg.iterables.chunks">
+<code class="descclassname">pymtg.iterables.</code><code class="descname">chunks</code><span class="sig-paren">(</span><em>l</em>, <em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/iterables.html#chunks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.iterables.chunks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yield successive <code class="docutils literal notranslate"><span class="pre">n</span></code>-sized chunks from <code class="docutils literal notranslate"><span class="pre">l</span></code>.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chunks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#doctest: +ELLIPSIS</span>
+<span class="go">&lt;generator object chunks at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">chunks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">[[1, 2], [3, 4], [5]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymtg.plotting">
+<span id="pymtg-plotting"></span><h2>pymtg.plotting<a class="headerlink" href="#module-pymtg.plotting" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pymtg.plotting.color_at_index">
+<code class="descclassname">pymtg.plotting.</code><code class="descname">color_at_index</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/plotting.html#color_at_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.plotting.color_at_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return hexadecimal color at given <code class="docutils literal notranslate"><span class="pre">index</span></code> from <code class="docutils literal notranslate"><span class="pre">COLORS</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Index of color to return (wraps if larger than the length of <code class="docutils literal notranslate"><span class="pre">COLORS</span></code>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Hexadecimal color code (starts with #)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)">str</a>)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymtg.processing">
+<span id="pymtg-processing"></span><h2>pymtg.processing<a class="headerlink" href="#module-pymtg.processing" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pymtg.processing.WorkParallelizer">
+<em class="property">class </em><code class="descclassname">pymtg.processing.</code><code class="descname">WorkParallelizer</code><span class="sig-paren">(</span><em>use_ipywidgets=False</em>, <em>use_threads=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/processing/worker.html#WorkParallelizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.processing.WorkParallelizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility class to parallelize tasks using either Threads or Processes.</p>
+<p>This utility class is based on concurrent.futures.
+See <a class="reference external" href="https://docs.python.org/3/library/concurrent.futures.html">https://docs.python.org/3/library/concurrent.futures.html</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inititalize the work parallelizer</span>
+<span class="n">wp</span> <span class="o">=</span> <span class="n">WorkParallelizer</span><span class="p">()</span>
+
+<span class="c1"># Add tasks to the work parallelizer</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+    <span class="n">wp</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="n">my_function</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kwarg1</span><span class="o">=</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="n">kwarg2</span><span class="o">=</span><span class="s1">&#39;two&#39;</span><span class="p">)</span>
+
+<span class="c1"># Start running the tasks with the specified number of workers</span>
+<span class="c1"># This function will show periodic updates of the status of the tasks and block the main thread</span>
+<span class="c1"># Check WorkParallelizer.start() to get tasks running in the background.</span>
+<span class="n">wp</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">num_workers</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Show errors after computing all tasks (if any)</span>
+<span class="k">if</span> <span class="n">wp</span><span class="o">.</span><span class="n">num_tasks_failed</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">wp</span><span class="o">.</span><span class="n">show_errors</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymtg.signal">
+<span id="pymtg-signal"></span><h2>pymtg.signal<a class="headerlink" href="#module-pymtg.signal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pymtg.signal.linear_approximation">
+<code class="descclassname">pymtg.signal.</code><code class="descname">linear_approximation</code><span class="sig-paren">(</span><em>x</em>, <em>include_coeffs=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/signal.html#linear_approximation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.signal.linear_approximation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the first degree least squares polynomial fit of x (linear approximation).</p>
+<p>This function returns the linear approximation as a signal of the same length of x.
+If requested, the function can also return the linear approximation coefficients as
+returned by Numpy’s ‘polyfit’ function. For more details in the method used for the linear
+approximation, see <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.polyfit.html">https://docs.scipy.org/doc/numpy/reference/generated/numpy.polyfit.html</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>array</em>) – The input signal</li>
+<li><strong>include_coeffs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to return the computed linear approximation coefficients
+along with the approximated signal (default=False).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The linear approximation of then input signal</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(array)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">linear_approximation</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="go">array([ 1.,  1.,  1.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">linear_approximation</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="go">array([ 0.,  1.,  2.,  3.,  4.,  5.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">linear_approximation</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+<span class="go">array([ -1. ,   2.6,   6.2,   9.8,  13.4])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">linear_approximation</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">],</span> <span class="n">include_coeffs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">(array([ -1. ,   2.6,   6.2,   9.8,  13.4]), (3.6000000000000001, -0.99999999999999778))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pymtg.signal.smooth">
+<code class="descclassname">pymtg.signal.</code><code class="descname">smooth</code><span class="sig-paren">(</span><em>x</em>, <em>window_len=11</em>, <em>window='hanning'</em>, <em>preserve_length=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/signal.html#smooth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.signal.smooth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Smooth the data using a window with requested size.</p>
+<p>This method is based on the convolution of a scaled window with the signal.
+The signal is prepared by introducing reflected copies of the signal
+(with the window size) in both ends so that transient parts are minimized
+in the beginning and end part of the output signal.</p>
+<p>The code here is an adaptation of the smoothing code from Scipy Cookbook:
+<a class="reference external" href="http://scipy-cookbook.readthedocs.io/items/SignalSmooth.html">http://scipy-cookbook.readthedocs.io/items/SignalSmooth.html</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>array</em>) – The input signal</li>
+<li><strong>window_len</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The dimension of the smoothing window. Should be an odd integer.</li>
+<li><strong>window</strong> (<em>string</em>) – The type of window from ‘flat’, ‘hanning’, ‘hamming’, ‘bartlett’,
+‘blackman’. Flat window will produce a moving average smoothing.</li>
+<li><strong>preserve_length</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether the length oh the output signal should be the same
+as the length of the input signal (default=True).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The smoothed signal</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(array)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">smooth</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">array([ 0.5,  0.5,  0.5,  0.5,  0.5,  0.5])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymtg.time">
+<span id="pymtg-time"></span><h2>pymtg.time<a class="headerlink" href="#module-pymtg.time" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pymtg.time.datetime_range">
+<code class="descclassname">pymtg.time.</code><code class="descname">datetime_range</code><span class="sig-paren">(</span><em>start_datetime</em>, <em>end_datetime=None</em>, <em>step_interval=None</em>, <em>n_steps=1</em>, <em>snap_to_date=False</em>, <em>return_pairs=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/time.html#datetime_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.time.datetime_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of dates inside the date range between <code class="docutils literal notranslate"><span class="pre">start_datetime</span></code> and <code class="docutils literal notranslate"><span class="pre">end_datetime</span></code>,
+equally spaced in <code class="docutils literal notranslate"><span class="pre">step</span></code> time intervals.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start_datetime</strong> (<em>datetime</em>) – Starting time of the range</li>
+<li><strong>end_datetime</strong> (<em>datetime</em>) – End of the time range (included if range is multiple of step). Defaults to today</li>
+<li><strong>step_interval</strong> (<em>timedelta</em><em>,</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – time interval of between list elements. Can be a <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>
+object or a string from [‘day’, ‘second’, ‘microsecond’, ‘millisecond’, ‘minute’, ‘hour’, ‘week’].
+Defaults to 1 day.</li>
+<li><strong>n_steps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – number of steps to be applied between list elements (default=1)</li>
+<li><strong>snap_to_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to disregard hour, minutes and seconds information (as a date object,
+default=False)</li>
+<li><strong>return_pairs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to return a simple list or a list of pairs with edge dates for each
+interval (default=False)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> objects (or tuples of two <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> if <code class="docutils literal notranslate"><span class="pre">return_pairs=True</span></code>)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)">list</a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_range</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="go">[datetime.datetime(2017, 1, 1, 0, 0), datetime.datetime(2017, 1, 2, 0, 0), datetime.datetime(2017, 1, 3, 0, 0)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_range</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">45</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">54</span><span class="p">),</span> <span class="n">snap_to_date</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">[datetime.datetime(2017, 1, 1, 0, 0), datetime.datetime(2017, 1, 2, 0, 0), datetime.datetime(2017, 1, 3, 0, 0)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_range</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">step_interval</span><span class="o">=</span><span class="s1">&#39;minute&#39;</span><span class="p">)</span>
+<span class="go">[datetime.datetime(2017, 1, 1, 11, 0), datetime.datetime(2017, 1, 1, 11, 1), datetime.datetime(2017, 1, 1, 11, 2)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_range</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">step_interval</span><span class="o">=</span><span class="s1">&#39;minute&#39;</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">[datetime.datetime(2017, 1, 1, 11, 0), datetime.datetime(2017, 1, 1, 11, 10), datetime.datetime(2017, 1, 1, 11, 20)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_range</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">return_pairs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">[(datetime.datetime(2017, 1, 1, 0, 0), datetime.datetime(2017, 1, 2, 0, 0)), (datetime.datetime(2017, 1, 2, 0, 0), datetime.datetime(2017, 1, 3, 0, 0))]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pymtg.time.time_stats">
+<code class="descclassname">pymtg.time.</code><code class="descname">time_stats</code><span class="sig-paren">(</span><em>done</em>, <em>total</em>, <em>starttime</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymtg/time.html#time_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymtg.time.time_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count how far through a repeated operation you are.</p>
+<p>Use this method if you are performing a repeated operation over
+a list of items and you want to check progress and time remaining
+after each iteration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>done</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – how many items have been processed</li>
+<li><strong>total</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – the total number of items that are to be processed</li>
+<li><strong>starttime</strong> – the result of an initial call to time.monotonic()</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A tuple of (time elapsed, time remaining), as a string representation
+of a timedelta</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, Music Technology Group, UPF.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

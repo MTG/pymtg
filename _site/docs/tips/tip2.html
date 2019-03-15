@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Python tip of the week 2, access speed of data structures &#8212; pymtg 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          pymtg</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Python tip of the week 2, access speed of data structures</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/tips/tip2.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="python-tip-of-the-week-2-access-speed-of-data-structures">
+<h1>Python tip of the week 2, access speed of data structures<a class="headerlink" href="#python-tip-of-the-week-2-access-speed-of-data-structures" title="Permalink to this headline">¶</a></h1>
+<p>Python has 3 main types of data structures for storing collections of items - lists, sets, and dictionaries. It’s important to know that the access speed of a list is O(n), that is it takes longer and longer to check something as the list gets longer. Sets and dictionaries have O(1) access, which means that the access speed is the same regardless of the size of the collection.</p>
+<p>Consider if we have a list of ground-truth items and a list of candidates and we want to check if each of the candidates is in the ground truth:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">timeit</span>
+
+<span class="c1"># This is a list of 10k random items as an example</span>
+<span class="n">small_groundtruth</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">check_candidates</span><span class="p">(</span><span class="n">groundtruth</span><span class="p">,</span> <span class="n">n_candidates</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check which of the candidates in the range [0-n_candidates]</span>
+<span class="sd">       are present in the collection `groundtruth`&quot;&quot;&quot;</span>
+    <span class="n">yes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">no</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">candidate</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_candidates</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">candidate</span> <span class="ow">in</span> <span class="n">groundtruth</span><span class="p">:</span>
+            <span class="c1"># This is just an example about what to do with the result</span>
+            <span class="n">yes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">no</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can use the timeit module (from tip 1!) to see how long our method takes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s1">&#39;check_candidates(small_groundtruth, 100)&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="nb">globals</span><span class="p">())</span>
+<span class="mf">0.13829218316823244</span>
+</pre></div>
+</div>
+<p>OK, so checking 100 candidates in a list of 10k items 10 times (the <cite>number</cite> parameter) takes 0.14 seconds (0.01 seconds per iteration), this seems pretty fast.
+What happens if we want to check 1000 items?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s1">&#39;check_candidates(small_groundtruth, 1000)&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="nb">globals</span><span class="p">())</span>
+<span class="mf">1.3406621366739273</span>
+</pre></div>
+</div>
+<p>Time increases linearly. However, what happens if our groundtruth grows by some orders of magnitude?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 100k items</span>
+<span class="n">groundtruth</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000000000</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">)]</span>
+
+<span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s1">&#39;check_candidates(groundtruth, 100)&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="nb">globals</span><span class="p">())</span>
+<span class="mf">1.36269876267761</span>
+
+<span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s1">&#39;check_candidates(groundtruth, 1000)&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="nb">globals</span><span class="p">())</span>
+<span class="mf">13.427033469080925</span>
+
+<span class="c1"># 1m items?</span>
+<span class="n">groundtruth</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000000000</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)]</span>
+
+<span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s1">&#39;check_candidates(groundtruth, 1000)&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="nb">globals</span><span class="p">())</span>
+<span class="mf">122.46592588163912</span>
+</pre></div>
+</div>
+<p>This is getting longer and longer. Why is this the case? When testing for membership in a list, we have to check every item in the list in order to see if a candidate exists. If the item doesn’t exist in the list we have to check all items in the list before we can say that it doesn’t exist. As this list gets longer and longer, this operation takes longer.
+We can speed up the process by checking if the item is in a set instead of a list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">groundtruth_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">groundtruth</span><span class="p">)</span>
+
+<span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s1">&#39;check_candidates(groundtruth_set, 1000)&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="nb">globals</span><span class="p">())</span>
+<span class="mf">0.0022530462592840195</span>
+</pre></div>
+</div>
+<p>The same operation which took 122 seconds above (12 seconds per <cite>number</cite>) only took 0.002 seconds! (60,000 times faster!)
+What happens if we make the groundtruth 100x larger?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># These two lines take a while to run, but it&#39;s just one-time setup for the demo</span>
+<span class="n">groundtruth100m</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000000000000</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000000</span><span class="p">)]</span>
+<span class="n">groundtruth100m_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">groundtruth100m</span><span class="p">)</span>
+
+<span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s1">&#39;check_candidates(groundtruth100m_set, 1000)&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="nb">globals</span><span class="p">())</span>
+<span class="mf">0.0023570358753204346</span>
+</pre></div>
+</div>
+<p>It takes the same amount of time! No increase as the size of our groundtruth grows. This is because the check uses the hash of its value to quickly see if the item exists in the set (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#set-types-set-frozenset">https://docs.python.org/3.7/library/stdtypes.html#set-types-set-frozenset</a>)</p>
+<p>The key of a dictionary is also a hash, and so your groundtruth in this example could also be a dictionary mapping {value: class} and the lookups would still be fast.</p>
+<p>Note that the process of changing a list to a set may take some time, but the tradeoff is worth it to get fast lookups multiple times. Make sure that you only do it once! It will cause you to use more memory. Remember that a set is not ordered, and can only contain a value once. To save time and memory, consider generating the set initially instead of making a list and converting it.</p>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, Music Technology Group, UPF.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Tip of the week &#8212; pymtg 0.1 documentation</title>
+    <title>Python tip of the week 1, timing &#8212; pymtg 0.1 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -63,7 +63,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Tip of the week</a></li>
+<li><a class="reference internal" href="#">Python tip of the week 1, timing</a></li>
 </ul>
 </ul>
 </li>
@@ -79,7 +79,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="../_sources/tips/tips.rst.txt"
+  <a href="../_sources/tips/tip1.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -103,33 +103,18 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="tip-of-the-week">
-<h1>Tip of the week<a class="headerlink" href="#tip-of-the-week" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tip0.html">Free tip 0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tip1.html">Python tip of the week 1, timing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tip2.html">Python tip of the week 2, access speed of data structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tip3.html">Python tip of the week 3, Python Lists</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tip3.html#processing-elements-in-lists">Processing elements in lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tip3.html#filtering-elements-in-lists">Filtering elements in lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tip3.html#flatten-a-nested-list">Flatten a nested list</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tip3.html#combining-multiple-lists">Combining multiple lists</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tip4.html">Python tip of the week 4, Dictionaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tip5.html">Python tip of the week 5, Sets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tip6.html">Python tip of the week 6, String formatting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tip6.html#basic-formatting">Basic formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tip6.html#named-placeholders">Named placeholders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tip6.html#number-formatting">Number formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tip6.html#padding-and-alignment">Padding and alignment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tip6.html#example-for-template-strings">Example for Template strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tip6.html#bonus-tip-join-function">Bonus tip: join function</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="python-tip-of-the-week-1-timing">
+<h1>Python tip of the week 1, timing<a class="headerlink" href="#python-tip-of-the-week-1-timing" title="Permalink to this headline">¶</a></h1>
+<p>Sometimes you might want to count how long an operation takes to complete. Surround the call to the function with <code class="docutils literal notranslate"><span class="pre">time.monotonic()</span></code>: <a class="reference external" href="https://docs.python.org/3/library/time.html#time.monotonic">https://docs.python.org/3/library/time.html#time.monotonic</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">my_long_running_function</span><span class="p">()</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;This operation took {:.2f} seconds&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">total</span><span class="p">))</span>
+</pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">monotonic()</span></code> is guaranteed to always increase. Other tips suggest <code class="docutils literal notranslate"><span class="pre">time.time()</span></code>, which will work most of the time, but this value could go backwards or skip forwards in some cases (daylight savings switchover, if you suspend your machine, if your operating system syncs the clock and makes a change…). Make the right choice and learn to use <code class="docutils literal notranslate"><span class="pre">monotonic()</span></code>.</p>
+<p>If you want to do a micro-benchmark to see how long a function takes to complete (for example if you’re optimising it), use the timeit module: <a class="reference external" href="https://docs.python.org/3/library/timeit.html">https://docs.python.org/3/library/timeit.html</a></p>
 </div>
 
 

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Python tip of the week 6, String formatting &#8212; pymtg 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          pymtg</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Python tip of the week 6, String formatting</a><ul>
+<li><a class="reference internal" href="#basic-formatting">Basic formatting</a></li>
+<li><a class="reference internal" href="#named-placeholders">Named placeholders</a></li>
+<li><a class="reference internal" href="#number-formatting">Number formatting</a></li>
+<li><a class="reference internal" href="#padding-and-alignment">Padding and alignment</a></li>
+<li><a class="reference internal" href="#example-for-template-strings">Example for Template strings</a></li>
+<li><a class="reference internal" href="#bonus-tip-join-function">Bonus tip: join function</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/tips/tip6.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="python-tip-of-the-week-6-string-formatting">
+<h1>Python tip of the week 6, String formatting<a class="headerlink" href="#python-tip-of-the-week-6-string-formatting" title="Permalink to this headline">¶</a></h1>
+<p>This week’s tip is about ways to format strings in Python.</p>
+<p>An ‘intuitive’ way for string formatting can be using ‘+’ operator for concatenating strings. To use this formatting style, we have to cast the integers or other data types into strings manually. An example can be as following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">num_of_items</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">type_of_items</span> <span class="o">=</span> <span class="s1">&#39;songs&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Here, we have &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_of_items</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">type_of_items</span><span class="p">)</span>
+
+<span class="go">Output: Here, we have 42 songs</span>
+</pre></div>
+</div>
+<p>While using ‘+’ operator seems easy to use, it comes with a bunch of problems (e.g. manual type casting, difficulty in reading code). Instead, you should consider using one of these recommended methods:</p>
+<ul class="simple">
+<li>Old Style: (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#old-string-formatting">https://docs.python.org/3/library/stdtypes.html#old-string-formatting</a>) This way of string formatting uses format specifiers to indicate what to substitute.</li>
+<li>New Style: (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.format">https://docs.python.org/3/library/stdtypes.html#str.format</a>) This method is used with calling the “.format()” function.</li>
+<li>F-strings: (<a class="reference external" href="https://www.python.org/dev/peps/pep-0498/">https://www.python.org/dev/peps/pep-0498/</a>) The F-strings style is supported in Python 3.6+, and it is a simple yet powerful way for string formatting. Unlike in ‘New Style’, you don’t have to call a specific function such as ‘.format()’ or use format specifiers as in ‘Old Style’.</li>
+<li>Template Strings: (<a class="reference external" href="https://docs.python.org/3/library/string.html#template-strings">https://docs.python.org/3/library/string.html#template-strings</a>) This simpler and less powerful method of formatting strings can be useful in terms of privacy of variables. For this method, Template class for Python string module should be imported.</li>
+</ul>
+<p>Below, you can find some examples of use:</p>
+<div class="section" id="basic-formatting">
+<h2>Basic formatting<a class="headerlink" href="#basic-formatting" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">num_of_items</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">type_of_items</span> <span class="o">=</span> <span class="s1">&#39;songs&#39;</span>
+
+<span class="go"># Old style</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Here, we have </span><span class="si">%d</span><span class="s1"> </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">num_of_items</span><span class="p">,</span> <span class="n">type_of_items</span><span class="p">))</span>
+
+<span class="go"># New style</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Here, we have {} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_of_items</span><span class="p">,</span> <span class="n">type_of_items</span><span class="p">))</span>
+
+<span class="go"># F-strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Here, we have {num_of_items} {type_of_items}&#39;</span><span class="p">)</span>
+
+<span class="go">Output: Here, we have 42 songs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="named-placeholders">
+<h2>Named placeholders<a class="headerlink" href="#named-placeholders" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;hop_size&#39;</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span> <span class="s1">&#39;frame_size&#39;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">}</span>
+
+<span class="go"># Old style</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;The parameters for hop size is </span><span class="si">%(hop_size)d</span><span class="s1">, and frame size is </span><span class="si">%(frame_size)s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">params</span><span class="p">)</span>
+
+<span class="go"># New style</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;The parameters for hop size is {hop_size}, and frame size is {frame_size}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">))</span>
+
+<span class="go"># F-strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The parameters for hop size is {params[&quot;hop_size&quot;]}, and frame size is {params[&quot;frame_size&quot;]}.&#39;</span><span class="p">)</span>
+
+<span class="go">Output: The parameters for hop size is 512, and frame size is 1024.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="number-formatting">
+<h2>Number formatting<a class="headerlink" href="#number-formatting" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">get_duration</span><span class="p">():</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="mf">331.1932148</span>
+
+<span class="go"># Old Style</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Duration of this track is </span><span class="si">%.2f</span><span class="s1"> seconds.&#39;</span> <span class="o">%</span> <span class="n">get_duration</span><span class="p">())</span>
+
+<span class="go"># New Style</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Duration of this track is {:.2f} seconds&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">get_duration</span><span class="p">()))</span>
+
+<span class="go"># F-strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Duration of this track is {get_duration():.2f} seconds.&#39;</span><span class="p">)</span>
+
+<span class="go">Output: Duration of this track is 331.19 seconds.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="padding-and-alignment">
+<h2>Padding and alignment<a class="headerlink" href="#padding-and-alignment" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">songs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Yesterday&#39;</span><span class="p">,</span> <span class="s1">&#39;All You Need Is Love&#39;</span><span class="p">,</span> <span class="s1">&#39;Hey Jude&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">albums</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Help!&#39;</span><span class="p">,</span> <span class="s1">&#39;Magical Mystery Tour&#39;</span><span class="p">,</span> <span class="s1">&#39;The Beatles&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">song_ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">483</span><span class="p">,</span> <span class="mi">65448</span><span class="p">,</span> <span class="mi">98</span><span class="p">]</span>
+
+<span class="go"># Old Style</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%20s</span><span class="s1"> - </span><span class="si">%-20s</span><span class="s1"> - </span><span class="si">%6d</span><span class="s1"> &#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">songs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">albums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">song_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+<span class="go"># New Style</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{:&gt;20} - {:&lt;20} - {:&gt;6}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">songs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">albums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">song_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+<span class="go"># F-strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{songs[i]:&gt;20} - {albums[i]:&lt;20} - {song_ids[i]:&gt;6}&#39;</span><span class="p">)</span>
+
+<span class="go">Output:            Yesterday - Help!                -    483</span>
+<span class="go">        All You Need Is Love - Magical Mystery Tour -  65448</span>
+<span class="go">                    Hey Jude - The Beatles          -     98</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-for-template-strings">
+<h2>Example for Template strings<a class="headerlink" href="#example-for-template-strings" title="Permalink to this headline">¶</a></h2>
+<p>In most of the cases, one of the methods shown above would be appropriated. However, these methods might introduce security vulnerabilities to your programs. For instance, a user of a web application could retrieve some variables with a designed input. Let’s have a look at a simple example where an hypothetical attacker would be able to access some global variables:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a variable we don&#39;t want to show</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">SECRET_VARIABLE</span> <span class="o">=</span> <span class="s2">&quot;don&#39;t tell anyone&quot;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">Music</span><span class="p">:</span>
+<span class="o">&gt;&gt;&gt;</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="o">&gt;&gt;&gt;</span>         <span class="k">pass</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">song</span> <span class="o">=</span> <span class="n">Music</span><span class="p">()</span>
+
+<span class="c1"># New Style</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">user_provided_string</span> <span class="o">=</span> <span class="s1">&#39;{track.__init__.__globals__[SECRET_VARIABLE]}&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">user_provided_string</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="n">song</span><span class="p">))</span>
+
+<span class="n">Output</span><span class="p">:</span> <span class="n">don</span><span class="s1">&#39;t tell anyone</span>
+</pre></div>
+</div>
+<p>Here is where the Template strings method becomes useful:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_provided_string</span> <span class="o">=</span> <span class="s1">&#39;${track.__init__.__globals__[SECRET_VARIABLE]}&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">Template</span><span class="p">(</span><span class="n">user_provided_string</span><span class="p">)</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="n">song</span><span class="p">))</span>
+
+<span class="go">Raises: ValueError: Invalid placeholder in string: line 1, col 1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bonus-tip-join-function">
+<h2>Bonus tip: join function<a class="headerlink" href="#bonus-tip-join-function" title="Permalink to this headline">¶</a></h2>
+<p>For joining all the items in a tuple or a list into a single string,  you might be tented to use a for loop and concatenate elements one by one. However, the ‘.join()’ function provides a better way to do it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">songs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Yesterday&#39;</span><span class="p">,</span> <span class="s1">&#39;Come Together&#39;</span><span class="p">,</span> <span class="s1">&#39;Hey Jude&#39;</span><span class="p">,</span> <span class="s1">&#39;Blackbird&#39;</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Processing the songs: &#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">message</span> <span class="o">+=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">songs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="go">Output: Processing the songs: Yesterday, Come Together, Hey Jude, Blackbird, ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, Music Technology Group, UPF.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -35,14 +35,3 @@ All tests embedded in docstrings can be run at once with the command:
 ```
 python test.py
 ```
-
-## Adding Tips
-
-First of all you need to have [Sphinx](http://www.sphinx-doc.org/en/master/) installed.
-
-Then you need to go to `docs_src/tips` and make two different things:
-
-- Create a new file for your tip of the week. These files are written in [ReStructured Text](http://docutils.sourceforge.net/docs/user/rst/quickref.html#hyperlink-targets), so you just need to format your information into rst. 
-- Add your tip to the list of tips on the toctree of `tips.rst`
-
-Once that is done you just need to move to the pymtg folder on your terminal and type the following command `make html`. This will create the html pages from your rst files. 
