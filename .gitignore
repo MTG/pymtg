@@ -62,9 +62,9 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/_build/
-docs/doctrees
-docs/.doctrees
+docs_src/_build/
+docs_src/doctrees
+docs_src/.doctrees
 
 # PyBuilder
 target/
