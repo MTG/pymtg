@@ -13,7 +13,7 @@ An 'intuitive' way for string formatting can be using '+' operator for concatena
 
 	Output: Here, we have 42 songs
 
-While using '+' operator seems easy to use, it comes with a bunch of problems (e.g. manual type casting, difficulty in reading code). Instead, you should consider using one of these recommended methods:
+While the '+' operator seems easy to use, it comes with a bunch of problems (e.g. manual type casting, difficulty in reading code). Instead, you should consider using one of these recommended methods:
 
 - Old Style: (https://docs.python.org/3/library/stdtypes.html#old-string-formatting) This way of string formatting uses format specifiers to indicate what to substitute. 
 - New Style: (https://docs.python.org/3/library/stdtypes.html#str.format) This method is used with calling the ".format()" function.

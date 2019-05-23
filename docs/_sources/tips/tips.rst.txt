@@ -10,3 +10,6 @@ Tip of the week
    tip4
    tip5
    tip6
+   tip7
+   tip8
+   tip9
