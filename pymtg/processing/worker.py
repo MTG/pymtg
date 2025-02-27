@@ -146,7 +146,7 @@ See https://docs.python.org/3/library/concurrent.futures.html.
         print('Submitting {0} tasks to {1} workers'.format(self.num_tasks, num_workers))
         self.tasks_succeeded_cache = []
         self.executor = self.pool_executor(max_workers=num_workers)
-        self.start_time = time.time()
+        self.start_time = time.monotonic()
         for (fn, args, kwargs, tid) in self.tasks:
             future = self.executor.submit(fn, *args, **kwargs)
             future.id = tid
